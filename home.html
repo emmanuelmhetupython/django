@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+<div class="container">
+  <h2>Homepage</h2>
+  <p>Welcome to my website : {% if user.is_authenticated %}{{ user.username}}{% else %}Visitor{% endif %}</p>
+  <div class="container">
+    <h2>Your tweets are</h2>
+    {% for post in posts %}
+    <p>{{ post.title }}</p>
+    <p>{{ post.post }}</p>
+    {% endfor %}
+  </div>
+
+  <strong>Total number of users registered: {{ count }}</strong><br>
+  <button type="button" class="btn btn-primary">
+    Total Number of users is <span class="badge badge-light">{{ count }}</span>
+  </button>
+  {% endblock %}
+
+</div>
